@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { createStage, checkColision } from "../gameHelpers";
 
 // styled components
-import { StyledTetrisWrapper, StyledTetris } from "./styles/StyledTetris";
+import { StyledTetrisWrapper, StyledTetris, TitleGame } from "./styles/StyledTetris";
 
 //custom hooks
 import { useInteral } from "../hooks/useInterval";
@@ -95,6 +95,7 @@ const Tetris = () => {
 
     return (
         <StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={e => move(e)} onKeyUp={keyUp}>
+            <TitleGame>REACT - TETRIS</TitleGame>
             <StyledTetris>
                 <Stage stage={stage} />
                 <aside>

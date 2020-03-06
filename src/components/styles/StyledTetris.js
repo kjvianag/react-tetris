@@ -24,3 +24,9 @@ export const StyledTetris = styled.div`
         padding: 0 20px;
     }
 `;
+export const TitleGame = styled.h2`
+    text-align: center;
+    color: #999;
+    font-family: Pixel, Arial, Helvetica, sans-serif;
+    font-size:3rem; 
+`;
