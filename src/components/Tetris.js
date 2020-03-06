@@ -14,7 +14,7 @@ import { useGameStatus } from "../hooks/useGameStatus";
 //Components
 import Stage from './Stage';
 import Display from './Display';
-import StartButton from './StartButton';
+import { Buttons } from './StartButton';
 
 const Tetris = () => {
     const [dropTime, setDropTime] = useState(null);
@@ -23,7 +23,7 @@ const Tetris = () => {
     const [player, updatePlayerPos, resetPlayer, playerRotate] = usePlayer();
     const [stage, setStage, rowsCleared] = useStage(player, resetPlayer);
     const [score, setScore, rows, setRows, level, setLevel] = useGameStatus(rowsCleared);
-
+    const [StartButton, ResetButton] = Buttons();
 
     const movePlayer = dir => {
         if (!checkColision(player, stage, { x: dir, y: 0 })) {
@@ -39,6 +39,10 @@ const Tetris = () => {
         setScore(0);
         setRows(0);
         setLevel(0);
+    }
+
+    const resetGame = () => {
+        startGame();
     }
 
     const drop = () => {
@@ -104,6 +108,7 @@ const Tetris = () => {
                             </div>
                         )}
                     <StartButton callback={startGame} />
+                    <ResetButton callback={resetGame} />
                 </aside>
             </StyledTetris>
         </StyledTetrisWrapper>
